@@ -7,36 +7,14 @@
 <head>
 <meta charset="UTF-8" />
 <title>글수정 화면</title>
-
 <link rel="stylesheet" type="text/css"
 	href="/resources/include/css/common.css" />
 <link rel="stylesheet" type="text/css"
 	href="/resources/include/css/board.css" />
-
 <script type="text/javascript"
 	src="/resources/include/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="/resources/include/js/common.js"></script>
 <script type="text/javascript">
-	$(function() {
-		var value = "${updateData.b_file}";
-		if (value != "") {
-			var img = $("<img>");
-			$("#imgView").hover(function() {
-				img.attr({
-					src : "/uploadStorage/board/$(updateData.b_file)",
-					width : "450px",
-					height : "200px"
-				});
-				img.addClass("imgViewData");
-				$('#imgArea').append(img);
-			}, function() {
-				img.remove();
-			});
-		} else {
-			$('#imgView').hide();
-		}
-	}
-
 	$(function() { /* 수정 버튼 클릭 시 처리 이벤트 */
 		$("#boardUpdateBtn").click(function() {
 			//입력값 체크 
@@ -52,7 +30,6 @@
 				$("#f_writeForm").submit();
 			}
 		});
-
 		/* 목록 버튼 클릭 시 처리 이벤트 */
 		$("#boardListBtn").click(function() {
 			location.href = "/board/boardList.do";
@@ -102,19 +79,18 @@
 							<td class="ac vm">내용</td>
 							<td colspan="3"><textarea name="b_content" id="b_content">${updateData.b_content} </textarea></td>
 						</tr>
-
 						<tr>
 							<td class="ac">첨부파일</td>
 							<td colspan="3"><input type="file" name="file" id="file">
 								<span id="imgView">기존 이미지파일명: ${updateData.b_file}<span
 									id="imgArea"> </span></span></td>
 						</tr>
-
 						<tr>
 							<td class="ac">비밀번호</td>
 							<td colspan="3"><input type="password" name="b_pwd"
 								id="b_pwd" /> <label>수정할 비밀번호를 입력해 주세요.</label></td>
 						</tr>
+				
 				</table>
 			</form>
 		</div>

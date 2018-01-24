@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>글쓰기 화면</title>
 <link rel="stylesheet" type="text/css"
 	href="/resources/include/css/common.css" />
@@ -16,7 +14,7 @@
 <script type="text/javascript" src="/resources/include/js/common.js"></script>
 <script type="text/javascript">
 	$(function() {
-		/* 저장 버튼 클릭 시 처리 이벤트 */
+		/* 저장버튼 클릭시 처리 이벤트 */
 		$("#boardInsertBtn").click(function() {
 			//입력값 체크
 			if (!chkSubmit($('#b_name'), "이름을"))
@@ -32,13 +30,14 @@
 					if (!chkFile($('#file')))
 						return;
 				}
+
 				$("#f_writeForm").attr({
 					"method" : "POST",
 					"action" : "/board/boardInsert.do"
 				});
 				$("#f_writeForm").submit();
 			}
-		});
+		})
 		/* 목록 버튼 클릭 시 처리 이벤트 */
 		$("#boardListBtn").click(function() {
 			location.href = "/board/boardList.do";
