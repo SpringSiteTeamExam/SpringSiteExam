@@ -71,7 +71,7 @@ public class ReplyController {
 	}
 
 	/** 댓글 비번 구현 */
-	@RequestMapping(value = "/pwdConfrim.do")
+	@RequestMapping(value = "/pwdConfirm.do")
 	public ResponseEntity<Integer> pwdConfirm(@ModelAttribute ReplyVO rvo) {
 		logger.info("pwdConfirm 호출 성공");
 		ResponseEntity<Integer> entity = null;

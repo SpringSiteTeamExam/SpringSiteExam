@@ -29,16 +29,24 @@ public class ReplyDaoImpl implements ReplyDao {
 	@Override
 	public int pwdConfirm(ReplyVO rvo) {
 		return (Integer) session.selectOne("pwdConfirm");
-	} 
+	}
+
 	// 글수정 구현
 	@Override
 	public int replyUpdate(ReplyVO rvo) {
 		return session.update("replyUpdate");
-	} 
-	// 글삭제 구현
+	}
+
+	// 글삭제 구현 ( 댓글 번호로 삭제)
 	@Override
 	public int replyDelete(int r_num) {
 		return session.delete("replyDelete", r_num);
 	}
-
+	
+	/*
+	 * 두번쨰 방법 
+	 * //글삭제 구현(게시글 번호로 해당 게시글 전체 댓글 삭제)
+	 * @Override public int replyChoiceDelete(int b_num) { return
+	 * session.delete("replyChoiceDelete", b_num); }
+	 */
 }

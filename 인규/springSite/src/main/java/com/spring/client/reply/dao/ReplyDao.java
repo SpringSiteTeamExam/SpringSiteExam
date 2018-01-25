@@ -14,4 +14,8 @@ public interface ReplyDao {
 	public int replyUpdate(ReplyVO rvo);
 
 	public int replyDelete(int r_num);
+
+	// 두번쨰 방법 
+	// public int replyChoiceDelete(int b_num);
+
 }

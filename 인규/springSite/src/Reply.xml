@@ -31,18 +31,21 @@
 		)values( #{r_num}, #{b_num}, #{r_name}, #{r_content}, #{r_pwd} )
 	</insert>
 
-	<select id="pwdConfirm" parameterType="reply" resultType="int"> /*
-		SELECT NVL(( SELECT 1 FROM spring_reply WHERE
-		r_num = #{r_num} AND
-		r_pwd = #{r_pwd} ), 0) as state FROM dual
+	<select id="pwdConfirm" parameterType="reply" resultType="int">
+		SELECT NVL((
+		SELECT 1 FROM spring_reply
+		WHERE r_num = #{r_num} AND r_pwd = #{r_pwd}
+		), 0) as state
+		FROM dual
 	</select>
 
 	<!-- 댓글 수정 -->
 	<update id="replyUpdate" parameterType="reply">
-		update spring_reply set
-		r_content = #{r_content},
+		update spring_reply
+		set r_content = #{r_content},
 		r_date = sysdate
-		where r_num = #{r_num}
+		where
+		r_num = #{r_num}
 	</update>
 
 	<!-- 댓글 삭제 -->
